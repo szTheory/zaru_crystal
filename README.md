@@ -16,7 +16,7 @@ If extra breathing room is required (for example to add your own filename extens
 you can leave extra room with the `:padding` option:
 
 ```ruby
-Zaru.sanitize! "A"*400, :padding => 100
+Zaru.sanitize! "A"*400, padding: 100
 # resulting filename is 145 characters long
 ```
 
@@ -24,8 +24,8 @@ If you need to customize the fallback filename you can add your own fallback
 with the `:fallback` option:
 
 ```
-Zaru.sanitize! "<<<", :fallback => 'no_file'
-# resulting filename is 'no_file'
+Zaru.sanitize! "<<<", fallback: "no_file"
+# resulting filename is "no_file"
 ```
 
 Bad things in filenames
