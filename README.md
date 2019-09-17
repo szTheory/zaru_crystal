@@ -1,6 +1,6 @@
-zaru_crystal
+[zaru_crystal](https://github.com/szTheory/zaru_crystal)
 ====
-[![Build Status](https://travis-ci.org/szTheory/zaru_crystal.svg?branch=master)](https://travis-ci.org/szTheory/zaru_crystal)
+[![Build Status](https://travis-ci.org/szTheory/zaru_crystal.svg?branch=master)](https://travis-ci.org/szTheory/zaru_crystal) [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](<LINK-TO-YOUR-DOCUMENTATION>) [![GitHub release](https://img.shields.io/github/release/<YOUR-GITHUB-USERNAME>/<YOUR-REPOSITORY-NAME>.svg)](https://github.com/szTheory/zaru_crystal/releases)
 
 Filename sanitization for Crystal. This is useful when you generate filenames for downloads from user input. Port of the [Zaru gem for Ruby](https://github.com/madrobby/zaru). 
 
@@ -33,11 +33,11 @@ Zaru.sanitize! "<<<", fallback: "no_file"
 
 1. Add the dependency to your `shard.yml`:
 
-   ```yaml
-   dependencies:
-     zaru_test:
-       github: szTheory/zaru_crystal
-   ```
+```yaml
+ dependencies:
+   zaru_test:
+     github: szTheory/zaru_crystal
+```
 
 2. Run `shards install`
 
@@ -69,4 +69,4 @@ TODO
 
 [Wait, what, Zaru?](http://en.wikipedia.org/wiki/Zaru)
 
-zaru_crystal is licensed under the terms of the MIT license.
+[zaru_crystal](https://github.com/szTheory/zaru_crystal) is licensed under the terms of the MIT license.
