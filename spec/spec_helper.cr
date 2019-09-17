@@ -1,2 +1,2 @@
-require "../src/*"
 require "spec"
+require "../src/*"

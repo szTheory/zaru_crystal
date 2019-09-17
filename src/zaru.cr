@@ -1,6 +1,8 @@
 require "memoized"
 
 class Zaru
+  VERSION = "0.1.0"
+
   CHARACTER_FILTER       = /[\x00-\x1F\/\\:\*\?\"<>\|]/i
   UNICODE_WHITESPACE     = /[[:space:]]+/i
   WINDOWS_RESERVED_NAMES =

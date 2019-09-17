@@ -4,7 +4,7 @@ zaru_crystal
 
 Filename sanitization for Crystal. This is useful when you generate filenames for downloads from user input. Port of the [Zaru gem for Ruby](https://github.com/madrobby/zaru). 
 
-```ruby
+```crystal
 Zaru.sanitize! "  what\ēver//wëird:user:înput:"
 # => "whatēverwëirduserînput"
 ```
@@ -16,7 +16,7 @@ It removes the bad stuff but leaves unicode characters in place, so users can us
 If extra breathing room is required (for example to add your own filename extension later),
 you can leave extra room with the `:padding` option:
 
-```ruby
+```crystal
 Zaru.sanitize! "A"*400, padding: 100
 # resulting filename is 145 characters long
 ```
@@ -24,9 +24,27 @@ Zaru.sanitize! "A"*400, padding: 100
 If you need to customize the fallback filename you can add your own fallback
 with the `:fallback` option:
 
-```
+```crystal
 Zaru.sanitize! "<<<", fallback: "no_file"
 # resulting filename is "no_file"
+```
+
+## Installation
+
+1. Add the dependency to your `shard.yml`:
+
+   ```yaml
+   dependencies:
+     zaru_test:
+       github: szTheory/zaru_crystal
+   ```
+
+2. Run `shards install`
+
+## Usage
+
+```crystal
+require "zaru_crystal"
 ```
 
 Bad things in filenames

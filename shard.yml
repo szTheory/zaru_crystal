@@ -4,8 +4,12 @@ version: 0.1.0
 authors:
   - szTheory <szTheory@users.noreply.github.com>
 
-description: |
-  Filename sanitization for Crystal
+description:
+  - Filename sanitization for Crystal
+
+crystal: 0.30.1
+
+license: MIT
 
 dependencies:
   memoized:
@@ -14,5 +18,3 @@ dependencies:
 development_dependencies:
   ameba:
     github: crystal-ameba/ameba
-
-license: MIT
