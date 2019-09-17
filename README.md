@@ -35,7 +35,7 @@ Zaru.sanitize! "<<<", fallback: "no_file"
 
 ```yaml
  dependencies:
-   zaru_test:
+   zaru_crystal:
      github: szTheory/zaru_crystal
 ```
 
