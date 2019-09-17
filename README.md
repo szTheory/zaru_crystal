@@ -1,5 +1,6 @@
 zaru_crystal
 ====
+[![Build Status](https://travis-ci.org/szTheory/zaru_crystal.svg?branch=master)](https://travis-ci.org/szTheory/zaru_crystal)
 
 Filename sanitization for Crystal. This is useful when you generate filenames for downloads from user input. Port of the [Zaru gem for Ruby](https://github.com/madrobby/zaru). 
 
