@@ -7,10 +7,9 @@ authors:
 description: |
   Filename sanitization for Crystal
 
-# dependencies:
-#   pg:
-#     github: will/crystal-pg
-#     version: "~> 0.5"
+dependencies:
+  memoized:
+    github: maiha/memoized.cr
 
 development_dependencies:
   ameba:

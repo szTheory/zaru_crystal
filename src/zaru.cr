@@ -1,3 +1,5 @@
+require "memoized"
+
 class Zaru
   CHARACTER_FILTER = /[\x00-\x1F\/\\:\*\?\"<>\|]/i
   UNICODE_WHITESPACE = /[[:space:]]+/i
@@ -7,16 +9,24 @@ class Zaru
        LPT5 LPT6 LPT7 LPT8 LPT9}
   FALLBACK_FILENAME = "file"
 
-  def initialize(filename, options = {} of KeyType => ValueType)
-    @fallback = options[:fallback] || FALLBACK_FILENAME
-    @padding = options[:padding] || 0
-    @raw = filename.to_s.freeze
+  @fallback : String
+  @raw : String
+  @padding: Int32
+  @truncated : String
+
+  def initialize(filename, fallback, padding)
+    @fallback = fallback || FALLBACK_FILENAME
+    @padding = padding || 0
+    @raw = filename
+    @truncated = ""
   end
 
   # strip whitespace on beginning and end
   # collapse intra-string whitespace into single spaces
   def normalize
-    @normalized ||= @raw.strip.gsub(UNICODE_WHITESPACE," ")
+    Memoized(String).new do
+      @raw.strip.gsub(UNICODE_WHITESPACE," ")
+    end.get
   end
 
   # remove bad things!
@@ -27,15 +37,18 @@ class Zaru
   #
   # this renormalizes after filtering in order to collapse whitespace
   def sanitize
-    @sanitized ||=
+    Memoized(String).new do
       filter(normalize.gsub(CHARACTER_FILTER,"")).gsub(UNICODE_WHITESPACE," ")
+    end.get
   end
 
   # cut off at 255 characters
   # optionally provide a padding, which is useful to
   # make sure there is room to add a file extension later
   def truncate
-    @truncated ||= sanitize.chars.to_a.slice(0..254-@padding).join
+    Memoized(String).new do
+      sanitize.chars.to_a[0..254-@padding].join
+    end.get
   end
 
   def to_s
@@ -43,12 +56,11 @@ class Zaru
   end
 
   # convenience method
-  def self.sanitize!(filename, options = {} of KeyType => ValueType)
-    new(filename, options).to_s
+  def self.sanitize!(filename, fallback = nil, padding = nil)
+    new(filename, fallback, padding).to_s
   end
 
-  # TODO: mark this private
-  attr_reader :fallback
+  private getter :fallback
 
   private def filter(filename)
     filename = filter_windows_reserved_names(filename)
@@ -58,7 +70,7 @@ class Zaru
   end
 
   private def filter_windows_reserved_names(filename)
-    WINDOWS_RESERVED_NAMES.include?(filename.upcase) ? fallback : filename
+    WINDOWS_RESERVED_NAMES.includes?(filename.upcase) ? fallback : filename
   end
 
   private def filter_blank(filename)
@@ -66,7 +78,7 @@ class Zaru
   end
 
   private def filter_dot(filename)
-    filename.start_with?(".")? "#{fallback}#{filename}" : filename
+    filename.starts_with?(".")? "#{fallback}#{filename}" : filename
   end
 
 end
