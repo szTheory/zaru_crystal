@@ -1,6 +1,6 @@
 [zaru_crystal](https://github.com/szTheory/zaru_crystal)
 ====
-[![Build Status](https://travis-ci.org/szTheory/zaru_crystal.svg?branch=master)](https://travis-ci.org/szTheory/zaru_crystal) [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](<LINK-TO-YOUR-DOCUMENTATION>) [![GitHub release](https://img.shields.io/github/release/<YOUR-GITHUB-USERNAME>/<YOUR-REPOSITORY-NAME>.svg)](https://github.com/szTheory/zaru_crystal/releases)
+[![Build Status](https://travis-ci.org/szTheory/zaru_crystal.svg?branch=master)](https://travis-ci.org/szTheory/zaru_crystal) [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)]([<LINK-TO-YOUR-DOCUMENTATION>](https://sztheory.github.io/zaru_crystal/)) [![GitHub release](https://img.shields.io/github/release/szTheory/zaru_crystal.svg)](https://github.com/szTheory/zaru_crystal/releases)
 
 Filename sanitization for Crystal. This is useful when you generate filenames for downloads from user input. Port of the [Zaru gem for Ruby](https://github.com/madrobby/zaru). 
 
