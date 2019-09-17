@@ -1,11 +1,11 @@
 name: zaru_crystal
-version: 0.1.0
+version: 0.1.1
 
 authors:
   - szTheory <szTheory@users.noreply.github.com>
 
-description:
-  - Filename sanitization for Crystal
+description: |
+  Filename sanitization for Crystal
 
 crystal: 0.30.1
 
