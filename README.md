@@ -4,6 +4,24 @@
 
 Filename sanitization for Crystal. This is useful when you generate filenames for downloads from user input. Port of the [Zaru gem for Ruby](https://github.com/madrobby/zaru). 
 
+## Installation
+
+1. Add the dependency to your `shard.yml`:
+
+```yaml
+ dependencies:
+   zaru_crystal:
+     github: szTheory/zaru_crystal
+```
+
+2. Run `shards install`
+
+## Usage
+
+```crystal
+require "zaru_crystal"
+```
+
 ```crystal
 Zaru.sanitize! "  what\ēver//wëird:user:înput:"
 # => "whatēverwëirduserînput"
@@ -27,24 +45,6 @@ with the `:fallback` option:
 ```crystal
 Zaru.sanitize! "<<<", fallback: "no_file"
 # resulting filename is "no_file"
-```
-
-## Installation
-
-1. Add the dependency to your `shard.yml`:
-
-```yaml
- dependencies:
-   zaru_crystal:
-     github: szTheory/zaru_crystal
-```
-
-2. Run `shards install`
-
-## Usage
-
-```crystal
-require "zaru_crystal"
 ```
 
 Bad things in filenames
