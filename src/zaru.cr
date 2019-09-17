@@ -1,17 +1,17 @@
 require "memoized"
 
 class Zaru
-  CHARACTER_FILTER = /[\x00-\x1F\/\\:\*\?\"<>\|]/i
-  UNICODE_WHITESPACE = /[[:space:]]+/i
+  CHARACTER_FILTER       = /[\x00-\x1F\/\\:\*\?\"<>\|]/i
+  UNICODE_WHITESPACE     = /[[:space:]]+/i
   WINDOWS_RESERVED_NAMES =
     %w{CON PRN AUX NUL COM1 COM2 COM3 COM4 COM5
-       COM6 COM7 COM8 COM9 LPT1 LPT2 LPT3 LPT4
-       LPT5 LPT6 LPT7 LPT8 LPT9}
+      COM6 COM7 COM8 COM9 LPT1 LPT2 LPT3 LPT4
+      LPT5 LPT6 LPT7 LPT8 LPT9}
   FALLBACK_FILENAME = "file"
 
   @fallback : String
   @raw : String
-  @padding: Int32
+  @padding : Int32
   @truncated : String
 
   def initialize(filename, fallback, padding)
@@ -25,7 +25,7 @@ class Zaru
   # collapse intra-string whitespace into single spaces
   def normalize
     Memoized(String).new do
-      @raw.strip.gsub(UNICODE_WHITESPACE," ")
+      @raw.strip.gsub(UNICODE_WHITESPACE, " ")
     end.get
   end
 
@@ -38,7 +38,7 @@ class Zaru
   # this renormalizes after filtering in order to collapse whitespace
   def sanitize
     Memoized(String).new do
-      filter(normalize.gsub(CHARACTER_FILTER,"")).gsub(UNICODE_WHITESPACE," ")
+      filter(normalize.gsub(CHARACTER_FILTER, "")).gsub(UNICODE_WHITESPACE, " ")
     end.get
   end
 
@@ -47,7 +47,7 @@ class Zaru
   # make sure there is room to add a file extension later
   def truncate
     Memoized(String).new do
-      sanitize.chars.to_a[0..254-@padding].join
+      sanitize.chars.to_a[0..254 - @padding].join
     end.get
   end
 
@@ -74,11 +74,10 @@ class Zaru
   end
 
   private def filter_blank(filename)
-    filename.empty?? fallback : filename
+    filename.empty? ? fallback : filename
   end
 
   private def filter_dot(filename)
-    filename.starts_with?(".")? "#{fallback}#{filename}" : filename
+    filename.starts_with?(".") ? "#{fallback}#{filename}" : filename
   end
-
 end
