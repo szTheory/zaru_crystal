@@ -8,7 +8,17 @@ script:
   - crystal spec --release --no-debug
   - crystal tool format --check
   - bin/ameba src
+  - crystal docs
 
 matrix:
   allow_failures:
     - crystal: nightly
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  project_name: szTheory/zaru_crystal
+  on:
+    branch: master
+  local_dir: docs
