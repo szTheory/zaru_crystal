@@ -1,0 +1,19 @@
+name: zaru_crystal
+version: 0.1.0
+
+authors:
+  - szTheory <szTheory@users.noreply.github.com>
+
+description: |
+  Filename sanitization for Crystal
+
+# dependencies:
+#   pg:
+#     github: will/crystal-pg
+#     version: "~> 0.5"
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+
+license: MIT
