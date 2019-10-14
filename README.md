@@ -1,4 +1,4 @@
-[zaru_crystal](https://github.com/szTheory/zaru_crystal)
+zaru_crystal
 ====
 [![Build Status](https://travis-ci.org/szTheory/zaru_crystal.svg?branch=master)](https://travis-ci.org/szTheory/zaru_crystal) [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://sztheory.github.io/zaru_crystal/) [![GitHub release](https://img.shields.io/github/release/szTheory/zaru_crystal.svg)](https://github.com/szTheory/zaru_crystal/releases) ![GitHub stars](https://img.shields.io/github/stars/szTheory/zaru_crystal?style=social)
 
