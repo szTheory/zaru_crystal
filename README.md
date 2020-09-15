@@ -62,10 +62,6 @@ All [Unicode whitespace](http://en.wikipedia.org/wiki/Whitespace_character#Unico
 
 [Certain filenames are reserved in Windows](http://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx) and are filtered.
 
-TODO
-----
-
-* Extend test suite
 
 [Wait, what, Zaru?](http://en.wikipedia.org/wiki/Zaru)
 

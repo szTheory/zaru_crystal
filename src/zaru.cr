@@ -1,5 +1,3 @@
-require "memoized"
-
 class Zaru
   VERSION = "0.1.0"
 
@@ -26,9 +24,7 @@ class Zaru
   # strip whitespace on beginning and end
   # collapse intra-string whitespace into single spaces
   def normalize
-    Memoized(String).new do
-      @raw.strip.gsub(UNICODE_WHITESPACE, " ")
-    end.get
+    @raw.strip.gsub(UNICODE_WHITESPACE, " ")
   end
 
   # remove bad things!
@@ -39,18 +35,14 @@ class Zaru
   #
   # this renormalizes after filtering in order to collapse whitespace
   def sanitize
-    Memoized(String).new do
-      filter(normalize.gsub(CHARACTER_FILTER, "")).gsub(UNICODE_WHITESPACE, " ")
-    end.get
+    filter(normalize.gsub(CHARACTER_FILTER, "")).gsub(UNICODE_WHITESPACE, " ")
   end
 
   # cut off at 255 characters
   # optionally provide a padding, which is useful to
   # make sure there is room to add a file extension later
   def truncate
-    Memoized(String).new do
-      sanitize.chars.to_a[0..254 - @padding].join
-    end.get
+    sanitize.chars.to_a[0..254 - @padding].join
   end
 
   def to_s

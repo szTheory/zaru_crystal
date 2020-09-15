@@ -1,0 +1,6 @@
+v1.0.0
+* Remove memoize dep
+* Bump Crystal requirement to 0.35.1
+
+v0.1.0
+* Initial release
