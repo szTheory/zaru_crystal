@@ -3,11 +3,14 @@ crystal:
   - latest
   - nightly
 
+install:
+  - shards install
+
 script:
   - crystal spec
   - crystal spec --release --no-debug
   - crystal tool format --check
-  - bin/ameba src
+  - bin/ameba.cr src
   - crystal docs
 
 matrix:
