@@ -10,7 +10,7 @@ script:
   - crystal spec
   - crystal spec --release --no-debug
   - crystal tool format --check
-  - bin/ameba.cr src
+  - crystal bin/ameba.cr src
   - crystal docs
 
 matrix:
